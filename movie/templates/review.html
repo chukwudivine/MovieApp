@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="card mb-3">
+<div class="row g-0">
+<div>
+  <div class="card-body">
+    <h5 class="card-title">Add Review for {{ movie.title }}</h5>
+
+    <p class="card-text">
+      <form method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <textarea class="form-control" name="text" placeholder="Enter Review"></textarea>
+  </div>
+      <div class="form-check d-flex justify-content-center mb-4">
+          <input class="form-check-input me-2" name="watchAgain" type="checkbox" value="" id="form2Example33"/>
+          <label class="form-check-label" for="form2Example33">Watch Again</label>
+      </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">
+Add Review
+</button>
+      <p>{{error}}</p>
+
+  </div>
+
+</form>
+    </p>
+  </div>
+</div>
+</div>
+
+
+{% endblock content%}
+</body>
+</html>

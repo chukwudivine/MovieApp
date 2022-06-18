@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+{% block content%}
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+{% for news in newss %}
+<div v-for="news in newss" class="col">
+<div class="card">
+<img class="card-img-top" src="{{ news.image.url }}" />
+<div class="card-body">
+    <a href="{% url 'ndetail' news.id %}">
+<h5 class="card-title fw-bold">{{ news.headline }}</h5>
+</a>
+<h5>{{ news.date }}</h5>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+
+
+
+{%endblock content%}
+</body>
+</html>
